@@ -1,0 +1,11 @@
+apiVersion: tekton.dev/v1alpha1
+kind: PipelineResource
+metadata:
+  name: fe-r
+spec:
+  type: git 
+  params:
+    - name: revision
+      value: maha-dev
+    - name: url
+      value: https://github.com/M404h/level3-project                                                                   

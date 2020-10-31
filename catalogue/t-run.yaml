@@ -1,0 +1,17 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: catalouge-taskrun
+spec:
+  serviceAccountName: maha-sa
+  taskRef:
+    name: catalouge-task
+  params:
+  - name: IMAGE
+    value: "ma404/catalouge"
+  resources:
+    inputs:
+    - name: level3-project
+      resourceRef:
+        name: catalouge-r
+

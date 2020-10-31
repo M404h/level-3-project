@@ -1,0 +1,17 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: frontend-taskrun
+spec:
+  serviceAccountName: maha-sa
+  taskRef:
+    name: front-end-task
+  params:
+  - name: IMAGE
+    value: "ma404/front-end"
+  resources:
+    inputs:
+    - name: level3-project
+      resourceRef:
+        name: fe-r
+

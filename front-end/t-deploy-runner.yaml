@@ -1,0 +1,14 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: frontend-taskrun
+spec:
+  serviceAccountName: maha-sa
+  taskRef:
+    name: deploy-using-kubectl
+  resources:
+    inputs:
+    - name: level3-project
+      resourceRef:
+        name: fe-r
+

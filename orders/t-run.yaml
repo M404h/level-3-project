@@ -1,0 +1,16 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: orders-taskrun
+spec:
+  serviceAccountName: maha-sa
+  taskRef:
+    name: orders-task
+  params:
+  - name: IMAGE
+    value: "ma404/orders"
+  resources:
+    inputs:
+    - name: level3-project
+      resourceRef:
+        name: orders-r

@@ -1,0 +1,17 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: user-taskrun
+spec:
+  serviceAccountName: maha-sa
+  taskRef:
+    name: user-task
+  params:
+  - name: IMAGE
+    value: "ma404/payment"
+  resources:
+    inputs:
+    - name: level3-project
+      resourceRef:
+        name: user-r
+
